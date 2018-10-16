@@ -10,6 +10,8 @@ def student_login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request, user)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
             return render(request, 'accounts/login_success.html')
         else:
             return HttpResponse('Invalid credentials')

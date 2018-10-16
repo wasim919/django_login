@@ -7,3 +7,6 @@ class HostelAnnouncements(models.Model):
     created_by = models.CharField(max_length=45, blank=True, null=True)
     modified_at = models.DateField(blank=True, null=True)
     modified_by = models.CharField(max_length=45, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.announcement)
