@@ -20,4 +20,5 @@ def announcement_detail(request, pk):
 
 @login_required
 def profile(request):
+    print('hello')
     return render(request, 'dashboard/profile.html')
