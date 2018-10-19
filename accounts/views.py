@@ -12,7 +12,8 @@ def student_login(request):
             login(request, user)
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
-            return render(request, 'accounts/login_success.html')
+            return redirect('/dashboard/')
+            # return render(request, 'accounts/login_success.html')
         else:
             return HttpResponse('Invalid credentials')
     else:

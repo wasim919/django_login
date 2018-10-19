@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name="home"),
     url(r'^accounts/', include('accounts.urls')),
-    url(r'^dashboard/', include('dashboard.urls'))
+    url(r'^dashboard/', include('dashboard.urls'), name = 'dashboard')
 ]
