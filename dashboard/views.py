@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import HostelAnnouncements
+from accounts.models import Student
+from django.contrib.auth.models import User
+from .forms import EditProfileForm
 
 @login_required
 def dashboard_index(request):
@@ -19,6 +22,22 @@ def announcement_detail(request, pk):
     })
 
 @login_required
-def profile(request):
-    print('hello')
-    return render(request, 'dashboard/profile.html')
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(data = request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/dashboard/profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'dashboard/edit_profile.html', {
+            'form': form
+        })
+
+@login_required
+def change_avatar(request, flag):
+    if flag == 0:
+        pass
+    elif flag == 1:
+        pass

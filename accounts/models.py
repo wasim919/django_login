@@ -6,6 +6,7 @@ class Student(models.Model):
     #idstudent = models.IntegerField(primary_key=True)
     #name = models.CharField(max_length=45, blank=True, null=True)
     roll = models.CharField(max_length=45, blank=True, null=True)
+    # avatar = models.ImageField(upload_to="media/images/")
     timestamp = models.DateTimeField(blank=True, null=True)
     created_at = models.DateField(blank=True, null=True)
     created_by = models.CharField(max_length=45, blank=True, null=True)

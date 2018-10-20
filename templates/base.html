@@ -16,6 +16,7 @@
     {% else %}
       <a href = "{% url 'accounts:student_login' %}">Login</a>
     {% endif %}
+    <a href="{% url 'dashboard:dashboard_index' %}">Dashboard</a>
 </div>
 <div class="container">
   {% block body_block %}
