@@ -61,6 +61,11 @@
               <i class="fas fa-user-times"></i> Logout
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{% url 'admin:index' %}" class="nav-link">
+              <i></i> Admin
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -105,10 +110,10 @@
                 {% for data in hostel_announcements %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{data}}</td>
+                  <td>{{data.announcement_title}}</td>
                   <td>{{data.created_at}}</td>
 
-                  <td><a href="{% url 'dashboard:announcement_detail' 1 data.pk %}" class="btn btn-secondary" target="1">
+                  <td><a href="{% url 'dashboard:announcement_detail' 1 data.pk %}" class="btn btn-secondary" target="{{ forloop.counter }}">
                     <i class="fas fa-angle-double-right"></i> Details
                   </a></td>
                 </tr>
@@ -130,10 +135,10 @@
                 {% for data in mess_announcements %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{data}}</td>
+                  <td>{{data.announcement_title}}</td>
                   <td>{{data.created_at}}</td>
 
-                  <td><a href="{% url 'dashboard:announcement_detail' 2 data.pk %}" class="btn btn-secondary" target="2">
+                  <td><a href="{% url 'dashboard:announcement_detail' 2 data.pk %}" class="btn btn-secondary" target="{{ forloop.counter }}">
                     <i class="fas fa-angle-double-right"></i> Details
                   </a></td>
                 </tr>
@@ -155,10 +160,10 @@
                 {% for data in medical_announcements %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{data}}</td>
+                  <td>{{data.announcement_title}}</td>
                   <td>{{data.created_at}}</td>
 
-                  <td><a href="{% url 'dashboard:announcement_detail' 3 data.pk %}" class="btn btn-secondary" target="3">
+                  <td><a href="{% url 'dashboard:announcement_detail' 3 data.pk %}" class="btn btn-secondary" target="{{ forloop.counter }}">
                     <i class="fas fa-angle-double-right"></i> Details
                   </a></td>
                 </tr>
@@ -182,7 +187,7 @@
           <p class="lead text-center">
             Copyright &copy;
             <span id="year"></span>
-            ProjectB04
+            Project-B04
           </p>
         </div>
       </div>

@@ -18,7 +18,7 @@ from django.contrib import admin
 from .import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name = 'admin'),
     url(r'^$', views.index, name="home"),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^dashboard/', include('dashboard.urls'), name = 'dashboard')
