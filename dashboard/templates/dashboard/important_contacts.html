@@ -60,6 +60,7 @@
             <a href="{% url 'accounts:student_logout' %}" class="nav-link">
               <i class="fas fa-user-times"></i> Logout
             </a>
+            <!-- <a href="http://127.0.0.1:8000/">Press me</a> -->
           </li>
         </ul>
       </div>
@@ -72,7 +73,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-cog"></i> Dashboard</h1>
+            <i class="fas fa-cog"></i> Important Contacts</h1>
         </div>
       </div>
     </div>
@@ -90,81 +91,31 @@
         <div class="col-md-9">
           <div class="card">
             <div class="card-header">
-              <h4>Announcements</h4>
+              <h4>Contacts</h4>
             </div>
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
-                  <th>Hostel</th>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>(Top - 5)</th>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Mobile No.</th>
+                  <th>Email</th>
                 </tr>
               </thead>
               <tbody>
-                {% for data in hostel_announcements %}
+                {% for data in imp_contacts %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{data}}</td>
-                  <td>{{data.created_at}}</td>
+                  <td>{{data.name}}</td>
+                  <td>{{data.mobile}}</td>
 
-                  <td><a href="{% url 'dashboard:announcement_detail' 1 data.pk %}" class="btn btn-secondary" target="1">
-                    <i class="fas fa-angle-double-right"></i> Details
+                  <td>{{data.email}}</i> Details
                   </a></td>
                 </tr>
                 {% endfor %}
               </tbody>
             </table>
 
-            <!--Mess-->
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Mess</th>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>(Top - 5)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for data in mess_announcements %}
-                <tr>
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{data}}</td>
-                  <td>{{data.created_at}}</td>
-
-                  <td><a href="{% url 'dashboard:announcement_detail' 2 data.pk %}" class="btn btn-secondary" target="2">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-
-            <!--Medical-->
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Medical</th>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>(Top - 5)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for data in medical_announcements %}
-                <tr>
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{data}}</td>
-                  <td>{{data.created_at}}</td>
-
-                  <td><a href="{% url 'dashboard:announcement_detail' 3 data.pk %}" class="btn btn-secondary" target="3">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
 
           </div>
         </div>
@@ -188,6 +139,7 @@
       </div>
     </div>
   </footer>
+
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>

@@ -42,13 +42,13 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome Brad
+              <i class="fas fa-user"></i> Welcome {{request.user}}
             </a>
             <div class="dropdown-menu">
               <a href="{% url 'dashboard:profile' %}" class="dropdown-item">
                 <i class="fas fa-user-circle"></i> Profile
               </a>
-              <a href="contacts.html" class="dropdown-item">
+              <a href="{% url 'dashboard:contacts' %}" class="dropdown-item">
                 <i class="fas fa-cog"></i> Important Contacts
               </a>
             </div>
@@ -100,32 +100,13 @@
             <div class="card-body">
               <form action="{% url 'dashboard:profile' %}" method="post">
                 {% csrf_token %}
-                <!-- <div class="form-group"> -->
-                  <!-- <label for="username">Username</label>
-                  <input name="username" type="text" class="form-control" placeholder="{{username}}" required> -->
                   {{ form.as_p }}
-                <!-- </div> -->
-                <!-- <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" placeholder="test@test.com">
-                </div> -->
-                <!-- <div class="form-group">
-                  <label for="bio">Bio</label>
-                  <textarea class="form-control" placeholder="Let people know you."></textarea>
-                </div> -->
                 <input type="Submit" value="Update" class="btn btn-primary btn-block">
               </form>
             </div>
           </div>
         </div>
         <div class="col-md-3">
-
-          <!-- <h3>Your Avatar</h3>
-          <img src="/../media/images/profile_1.jpg" alt="" class="d-block img-fluid mb-3">
-          <form action="{% url 'dashboard:change_avatar' 1 %}" enctype="multipart/form-data" method="post">
-            <input type="file" name="image" />
-            <button class="btn btn-primary btn-block">Upload Image</button>
-          </form> -->
         </div>
       </div>
     </div>
